@@ -46,4 +46,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'tachikoma'
+gem 'tachikoma_ai', path: '/Users/koishi/dev/git/tachikoma_ai'
+
 

@@ -15,7 +15,6 @@ namespace :bundle do
     require 'bundler/setup'
     require 'tachikoma/tasks'
     ENV['BUILD_FOR'] = 'yarnlocktest'
-    # TODO
-    ENV['TOKEN_YARNLOCKTEST'] = 'TODO'
+    ENV['TOKEN_YARNLOCKTEST'] = Rails.application.secrets[:github_token]
   end
 end
