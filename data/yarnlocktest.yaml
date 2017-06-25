@@ -1,5 +1,5 @@
 url:
-  'https://github.com/mugenup/yarnlocktest.git'
+  'https://github.com/koishimasato/yarnlocktest.git'
 type:
   'shared'
 git_clone_depth: 50

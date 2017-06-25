@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "parse": "node ./yarn-lock-parse.js"
+  },
   "dependencies": {
-    "eslint": "^4.0.0"
+    "eslint": "^4.0.0",
+    "yarn-lockfile": "^1.0.0"
   }
 }
