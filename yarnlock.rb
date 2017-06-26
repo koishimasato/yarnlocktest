@@ -18,16 +18,17 @@ module TachikomaAi
       def updated_npms
         return @updated_npms if @updated_npms
 
-        previous = lockfile('HEAD^')
+        previous = lockfile('HEAD^^')
         @updated_npms = diff_specs(previous, lockfile('HEAD')).map do |spec|
-          # before = previous.specs.find { |s| s.name == spec.name }
+          # name
+          before = previous.keys.find { |key| key.sub(//) ==  }
           # npm(spec, before)
         end.compact.uniq(&:name)
       end
 
       def diff_specs(previous, current)
-        prev_array = previous.to_a
-        current.to_a.reject { |elem| prev_array.include?(elem) }
+        prev_values = previous.values
+        current.reject { |k, v| prev_values.include?(v) }
       end
 
       def lockfile(ref)
@@ -57,8 +58,11 @@ end
 
 
 yarn = TachikomaAi::Strategies::Yarn.new
-pp yarn.lockfile('HEAD').values
-pp yarn.lockfile('HEAD^').keys
+# pp yarn.lockfile('HEAD').values
+# pp yarn.lockfile('HEAD^').keys
+
+pp yarn.diff_specs(yarn.lockfile('HEAD^^'), yarn.lockfile('HEAD'))
+# yarn.updated_npms
 #p `yarn parse --silent`
 
 
